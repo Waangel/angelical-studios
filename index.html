@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Angelical Studios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<body>
+
+<nav>
+
+    <div class="logo">
+        <img src="Captura de pantalla 2026-09-25 134750.png">
+    </div>
+
+    <div class="menu">
+        <a href="#home">HOME</a>
+        <a href="#games">GAMES</a>
+        <a href="#about">ABOUT</a>
+    </div>
+
+</nav>
+
+
+<section id="home" class="hero">
+
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="0925.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+
+        <p class="small-text">WELCOME TO</p>
+
+        <h1>ANGELICAL<br>STUDIOS</h1>
+
+        <p class="description">
+            Creating games, worlds and experiences.
+        </p>
+
+        <a href="#games" class="button">
+            EXPLORE OUR GAMES
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="games" class="games">
+
+    <h2>OUR GAMES</h2>
+
+    <div class="carousel">
+
+        <button class="carousel-button" onclick="previousGame()">‹</button>
+
+        <div class="game-track">
+
+            <div class="game-side">
+                <img id="leftImage">
+            </div>
+
+            <div class="game-center">
+
+                <img id="centerImage">
+
+                <h3 id="gameName"></h3>
+
+                <p id="gameDescription"></p>
+
+            </div>
+
+            <div class="game-side">
+                <img id="rightImage">
+            </div>
+
+        </div>
+
+        <button class="carousel-button" onclick="nextGame()">›</button>
+
+    </div>
+
+</section>
+
+
+<section id="about" class="about">
+
+    <h2>JOIN OUR COMMUNITY</h2>
+
+    <p>
+        Join our Discord server to stay updated,
+        talk with the community and see what we're creating.
+    </p>
+
+    <a href="https://discord.gg/Kdy2pwfJz"
+       target="_blank"
+       class="discord-button">
+        JOIN OUR DISCORD
+    </a>
+
+
+    <div class="team">
+
+        <h2>THE TEAM</h2>
+
+        <p>
+            Angelical Studios was created by:
+        </p>
+
+        <div class="creators">
+
+            <div class="creator">
+
+                <h3>Roblox Users</h3>
+
+                <p>
+                    @angelito9658<br>
+                    @bruhyouhavemoney
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <h2>ABOUT US</h2>
+
+    <p>
+        Angelical Studios is an independent studio
+        focused on creating unique games and experiences.
+    </p>
+
+</section>
+
+
+<script>
+
+const games = [
+
+    {
+        name: "Vanguard Tower Defense",
+        image: "ola1234.png",
+        description: "Defend your base or let the bad ones destroy it!"
+    },
+
+    {
+        name: "War It!",
+        image: "Captura de pantalla 2026-09-08 191756.png",
+        description: "Fight with other teams to take the lead!"
+    },
+
+    {
+        name: "Warzone Tycoon",
+        image: "Captura de pantalla 2026-09-25 141753.png",
+        description: "Upgrade your base and become a military master!"
+    }
+
+];
+
+
+let currentGame = 0;
+
+
+function updateCarousel() {
+
+    let left =
+        (currentGame - 1 + games.length) % games.length;
+
+    let right =
+        (currentGame + 1) % games.length;
+
+
+    document.getElementById("leftImage").src =
+        games[left].image;
+
+    document.getElementById("centerImage").src =
+        games[currentGame].image;
+
+    document.getElementById("rightImage").src =
+        games[right].image;
+
+    document.getElementById("gameName").textContent =
+        games[currentGame].name;
+
+    document.getElementById("gameDescription").textContent =
+        games[currentGame].description;
+
+}
+
+
+function nextGame() {
+
+    currentGame++;
+
+    if (currentGame >= games.length) {
+        currentGame = 0;
+    }
+
+    updateCarousel();
+
+}
+
+
+function previousGame() {
+
+    currentGame--;
+
+    if (currentGame < 0) {
+        currentGame = games.length - 1;
+    }
+
+    updateCarousel();
+
+}
+
+
+updateCarousel();
+
+</script>
+
+</body>
+
+</html>

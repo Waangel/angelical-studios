@@ -1,0 +1,454 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* MENU */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.menu {
+    display: flex;
+    gap: 35px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* VIDEO */
+
+.background-video {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+/* DARK OVERLAY */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 1;
+}
+
+/* TEXT */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1000px;
+}
+
+.small-text {
+    letter-spacing: 6px;
+    color: #bbbbbb;
+}
+
+h1 {
+    margin: 20px 0;
+
+    font-size: clamp(60px, 10vw, 150px);
+
+    line-height: 0.85;
+
+    letter-spacing: -5px;
+}
+
+.description {
+    color: #dddddd;
+    font-size: 20px;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 16px 30px;
+
+    border: 1px solid white;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+}
+
+/* OTHER SECTIONS */
+
+.games,
+.about {
+    min-height: 100vh;
+
+    padding: 150px 10%;
+}
+
+h2 {
+    font-size: 70px;
+    margin-bottom: 60px;
+}
+
+.game-card {
+    padding: 80px;
+
+    border: 1px solid #333;
+
+    background: #0c0c0c;
+}
+
+.game-card h3 {
+    font-size: 40px;
+}
+
+.game-card p,
+.about p {
+    color: #999;
+
+    font-size: 20px;
+
+    max-width: 600px;
+}
+.logo img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+/* GAME CAROUSEL */
+
+.carousel {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+}
+
+.game-slide {
+    width: 800px;
+
+    text-align: center;
+}
+
+.game-slide img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+.game-slide h3 {
+    font-size: 38px;
+
+    margin-top: 25px;
+}
+
+.arrow {
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid #555;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    transition: 0.2s;
+}
+
+.arrow:hover {
+    background: white;
+    color: black;
+}
+
+.dots {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+
+    background: #555;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.dot.active {
+    background: white;
+
+    transform: scale(1.4);
+}
+.game-center {
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.game-side {
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.game-center.fade-out {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(5px);
+}
+
+.game-side.side-change {
+    opacity: 0.1;
+    filter: blur(8px);
+}
+/* RESTORE GAME CAROUSEL */
+
+.cards,
+.game-track {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.game-side {
+    width: 250px !important;
+    height: 250px !important;
+
+    flex-shrink: 0;
+
+    opacity: 0.25 !important;
+    filter: blur(6px) !important;
+
+    transform: scale(0.8) !important;
+
+    position: static !important;
+}
+
+.game-side img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.game-center,
+.main-card {
+    width: 550px !important;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    position: static !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+.game-center img,
+.main-card img {
+    width: 550px !important;
+    height: 550px !important;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+.game-center h3,
+.main-card h3 {
+    font-size: 35px;
+    margin-top: 20px;
+}
+.carousel-button {
+    width: 65px;
+    height: 65px;
+
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 42px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+
+    transition: all 0.25s ease;
+}
+
+.carousel-button:hover {
+    transform: scale(1.15);
+
+    background: rgba(255,255,255,0.2);
+
+    border-color: white;
+
+    box-shadow: 0 0 30px rgba(255,255,255,0.25);
+}
+
+.carousel-button:active {
+    transform: scale(0.95);
+}
+/* NEW FONTS */
+
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.menu a,
+.button {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+.game-center h3 {
+    letter-spacing: 1px;
+}
+
+#gameDescription {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+}
+/* SECTION SEPARATORS */
+
+.games {
+    background: #0b0b0b;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.about {
+    background: #111111;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.hero {
+    background: #050505;
+}
